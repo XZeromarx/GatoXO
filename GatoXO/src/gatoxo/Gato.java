@@ -15,6 +15,7 @@ public class Gato {
     private String resultadoP2;
     private String peticion;
     byte jugadas = 0;
+    int jugadaX = 0;
 
     public String getPeticion() {
         return peticion;
@@ -131,5 +132,15 @@ public class Gato {
             }
         }
     }
+
+    public int getJugadaX() {
+        return jugadaX;
+    }
+
+    public void setJugadaX(int jugadaX) {
+        this.jugadaX = jugadaX;
+    }
+    
+    
 
 }
