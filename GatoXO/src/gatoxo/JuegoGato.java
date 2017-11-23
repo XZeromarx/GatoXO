@@ -10,9 +10,7 @@ public class JuegoGato {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String jugadores;
-        String lvl = "";
         while (true) {
-
             while (true) {
                 System.out.println("Buen día!");
                 System.out.println("Cuantas personas jugaran?");
@@ -23,20 +21,8 @@ public class JuegoGato {
 
                 if ("1".equals(jugadores)) {
                     System.out.println("a elejido el modo de 1 jugador.");
-                    System.out.println("En que dificultad quiere la computadora:");
-                    System.out.println("1.- FACIL");
-                    System.out.println("2.- DIFICIL");
-                    lvl = scan.nextLine();
 
-                    if ("1".equalsIgnoreCase(lvl) || "2".equalsIgnoreCase(lvl)) {
-                        System.out.println("Elijió la opcion " + lvl);
-                        if ("2".equalsIgnoreCase(lvl)) {
-                            System.out.println("Bravoo!!");
-                        }
-                        break;
-                    } else {
-                        System.out.println("no seleccionó ni uno ni 2. Intente nuevamente.");
-                    }
+                    break;
                 } else if ("2".equals(jugadores)) {
                     System.out.println("a elejido el modo de 2 jugadores.");
                     break;
@@ -44,8 +30,8 @@ public class JuegoGato {
                     System.out.println("No ha elejido una opcion valida");
                     System.out.println("intente nevamente");
                 }
-
             }
+
             Gato gato = new Gato();
             //inicializacion de variables
 
@@ -78,7 +64,6 @@ public class JuegoGato {
                                 gato.jugadas += 1;
                                 gato.setM(2, 0, "X");
                                 num1 = true;
-                                gato.setJugadaX(1);
                                 break OUTER_1;
                             } else {
                                 System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
@@ -89,7 +74,6 @@ public class JuegoGato {
                                 gato.jugadas += 1;
                                 gato.setM(2, 1, "X");
                                 num2 = true;
-                                gato.setJugadaX(2);
                                 break OUTER_1;
                             } else {
                                 System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
@@ -100,7 +84,6 @@ public class JuegoGato {
                                 gato.jugadas += 1;
                                 gato.setM(2, 2, "X");
                                 num3 = true;
-                                gato.setJugadaX(3);
                                 break OUTER_1;
                             } else {
                                 System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
@@ -111,7 +94,6 @@ public class JuegoGato {
                                 gato.jugadas += 1;
                                 gato.setM(1, 0, "X");
                                 num4 = true;
-                                gato.setJugadaX(4);
                                 break OUTER_1;
                             } else {
                                 System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
@@ -122,7 +104,6 @@ public class JuegoGato {
                                 gato.jugadas += 1;
                                 gato.setM(1, 1, "X");
                                 num5 = true;
-                                gato.setJugadaX(5);
                                 break OUTER_1;
                             } else {
                                 System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
@@ -133,7 +114,6 @@ public class JuegoGato {
                                 gato.jugadas += 1;
                                 gato.setM(1, 2, "X");
                                 num6 = true;
-                                gato.setJugadaX(6);
                                 break OUTER_1;
                             } else {
                                 System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
@@ -144,7 +124,6 @@ public class JuegoGato {
                                 gato.jugadas += 1;
                                 gato.setM(0, 0, "X");
                                 num7 = true;
-                                gato.setJugadaX(7);
                                 break OUTER_1;
                             } else {
                                 System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
@@ -155,7 +134,6 @@ public class JuegoGato {
                                 gato.jugadas += 1;
                                 gato.setM(0, 1, "X");
                                 num8 = true;
-                                gato.setJugadaX(8);
                                 break OUTER_1;
                             } else {
                                 System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
@@ -166,7 +144,6 @@ public class JuegoGato {
                                 gato.jugadas += 1;
                                 gato.setM(0, 2, "X");
                                 num9 = true;
-                                gato.setJugadaX(9);
                                 break OUTER_1;
                             } else {
                                 System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
@@ -298,15 +275,15 @@ public class JuegoGato {
                     }
                 }
                 gato.getGato();
-                //computadora FACIL
+                //while del jugador 2/computadora
 
-                if ("1".equalsIgnoreCase(jugadores) && "1".equalsIgnoreCase(lvl)) {
+                if ("1".equalsIgnoreCase(jugadores)) {
                     try {
                         System.out.println("Computadora: Buscando jugada....");
                         Thread.sleep(2000);
                         OUTER:
                         while (true) {
-
+                            
                             Random r = new Random();
                             int num = r.nextInt(10);
                             switch (num) {
@@ -389,266 +366,229 @@ public class JuegoGato {
                     } catch (InterruptedException ex) {
                         Logger.getLogger(JuegoGato.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    //computadora FACIL FIN
-                    if ("1".equalsIgnoreCase(jugadores) && "2".equalsIgnoreCase(lvl)) {
 
+                }else if("2".equalsIgnoreCase(jugadores)){
+                while (true) {
+
+                    System.out.println("Jugador 2");
+                    System.out.print("seleccione el espacio: ");
+                    String op = scan.nextLine();
+                    if (op.equals("1")) {
+                        if (num1 == false) {
+                            gato.jugadas += 1;
+                            gato.setM(2, 0, "O");
+                            num1 = true;
+                            break;
+                        } else {
+                            System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
+                        }
+                    } else if (op.equals("2")) {
+                        if (num2 == false) {
+                            gato.jugadas += 1;
+                            gato.setM(2, 1, "O");
+                            num2 = true;
+                            break;
+                        } else {
+                            System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
+                        }
+                    } else if (op.equals("3")) {
+                        if (num3 == false) {
+                            gato.jugadas += 1;
+                            gato.setM(2, 2, "O");
+                            num3 = true;
+                            break;
+                        } else {
+                            System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
+                        }
+                    } else if (op.equals("4")) {
+                        if (num4 == false) {
+                            gato.jugadas += 1;
+                            gato.setM(1, 0, "O");
+                            num4 = true;
+                            break;
+                        } else {
+                            System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
+                        }
+                    } else if (op.equals("5")) {
+                        if (num5 == false) {
+                            gato.jugadas += 1;
+                            gato.setM(1, 1, "O");
+                            num5 = true;
+                            break;
+                        } else {
+                            System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
+                        }
+                    } else if (op.equals("6")) {
+                        if (num6 == false) {
+                            gato.jugadas += 1;
+                            gato.setM(1, 2, "O");
+                            num6 = true;
+                            break;
+                        } else {
+                            System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
+
+                        }
+                    } else if (op.equals("7")) {
+                        if (num7 == false) {
+                            gato.jugadas += 1;
+                            gato.setM(0, 0, "O");
+                            num7 = true;
+                            break;
+                        } else {
+                            System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
+
+                        }
+                    } else if (op.equals("8")) {
+                        if (num8 == false) {
+                            gato.jugadas += 1;
+                            gato.setM(0, 1, "O");
+                            num8 = true;
+                            break;
+                        } else {
+                            System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
+                        }
+                    } else if (op.equals("9")) {
+                        if (num9 == false) {
+                            gato.jugadas += 1;
+                            gato.setM(0, 2, "O");
+                            num9 = true;
+                            break;
+                        } else {
+                            System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
+                        }
                     }
 
-                    //computadora DIFICIL
-                    if ("1".equalsIgnoreCase(jugadores) && "2".equalsIgnoreCase(lvl)) {
+                }
+                }//fin del while del jugador 2
+                if (num1 == true && num2 == true && num3 == true) {
+                    if ("game!".equals(gato.getResultadoP1())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 1!!! Felicidades.");
+                        break;
 
-                        try {
-                            System.out.println("Computadora: Buscando jugada....");
-                            Thread.sleep(2000);
-                            OUTER:
-                            while (true) {
-
-                                switch (gato.jugadaX) {
-                                    case 1:
-                                        gato.setM(1, 1, "O");
-                                        break;
-                                    case 3:
-                                        gato.setM(1, 1, "O");
-                                        break;
-                                    case 7:
-                                        gato.setM(1, 1, "O");
-                                        break;
-                                    case 9:
-                                        gato.setM(1, 1, "O");
-                                        break;
-                                    default:
-                                        break;
-                                }
-
-                                if ("2".equalsIgnoreCase(jugadores)) {
-                                    while (true) {
-
-                                        System.out.println("Jugador 2");
-                                        System.out.print("seleccione el espacio: ");
-                                        String op = scan.nextLine();
-                                        if (op.equals("1")) {
-                                            if (num1 == false) {
-                                                gato.jugadas += 1;
-                                                gato.setM(2, 0, "O");
-                                                num1 = true;
-                                                break;
-                                            } else {
-                                                System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
-                                            }
-                                        } else if (op.equals("2")) {
-                                            if (num2 == false) {
-                                                gato.jugadas += 1;
-                                                gato.setM(2, 1, "O");
-                                                num2 = true;
-                                                break;
-                                            } else {
-                                                System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
-                                            }
-                                        } else if (op.equals("3")) {
-                                            if (num3 == false) {
-                                                gato.jugadas += 1;
-                                                gato.setM(2, 2, "O");
-                                                num3 = true;
-                                                break;
-                                            } else {
-                                                System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
-                                            }
-                                        } else if (op.equals("4")) {
-                                            if (num4 == false) {
-                                                gato.jugadas += 1;
-                                                gato.setM(1, 0, "O");
-                                                num4 = true;
-                                                break;
-                                            } else {
-                                                System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
-                                            }
-                                        } else if (op.equals("5")) {
-                                            if (num5 == false) {
-                                                gato.jugadas += 1;
-                                                gato.setM(1, 1, "O");
-                                                num5 = true;
-                                                break;
-                                            } else {
-                                                System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
-                                            }
-                                        } else if (op.equals("6")) {
-                                            if (num6 == false) {
-                                                gato.jugadas += 1;
-                                                gato.setM(1, 2, "O");
-                                                num6 = true;
-                                                break;
-                                            } else {
-                                                System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
-
-                                            }
-                                        } else if (op.equals("7")) {
-                                            if (num7 == false) {
-                                                gato.jugadas += 1;
-                                                gato.setM(0, 0, "O");
-                                                num7 = true;
-                                                break;
-                                            } else {
-                                                System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
-
-                                            }
-                                        } else if (op.equals("8")) {
-                                            if (num8 == false) {
-                                                gato.jugadas += 1;
-                                                gato.setM(0, 1, "O");
-                                                num8 = true;
-                                                break;
-                                            } else {
-                                                System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
-                                            }
-                                        } else if (op.equals("9")) {
-                                            if (num9 == false) {
-                                                gato.jugadas += 1;
-                                                gato.setM(0, 2, "O");
-                                                num9 = true;
-                                                break;
-                                            } else {
-                                                System.out.println("Ingrese un numero del 1 al 9 y que no haya sido escogido");
-                                            }
-                                        }
-
-                                    }
-                                }//fin del while del jugador 2
-                                if (num1 == true && num2 == true && num3 == true) {
-                                    if ("game!".equals(gato.getResultadoP1())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 1!!! Felicidades.");
-                                        break;
-
-                                    } else if ("game2!".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 2!!! Felicidades.");
-                                        break;
-                                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Empate!!!");
-                                        break;
-                                    }
-                                }
-                                if (num4 == true && num5 == true && num6 == true) {
-                                    if ("game!".equals(gato.getResultadoP1())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 1!!! Felicidades.");
-                                        break;
-                                    } else if ("game2!".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 2!!! Felicidades.");
-                                        break;
-                                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Empate!!!");
-                                        break;
-                                    }
-                                }
-                                if (num7 == true && num8 == true && num9 == true) {
-                                    if ("game!".equals(gato.getResultadoP1())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 1!!! Felicidades.");
-                                        break;
-                                    } else if ("game2!".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 2!!! Felicidades.");
-                                        break;
-                                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Empate!!!");
-                                    }
-                                }
-                                if (num1 == true && num4 == true && num7 == true) {
-                                    if ("game!".equals(gato.getResultadoP1())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 1!!! Felicidades.");
-                                        break;
-                                    } else if ("game2!".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 2!!! Felicidades.");
-                                        break;
-                                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Empate!!!");
-                                        break;
-                                    }
-                                }
-                                if (num2 == true && num5 == true && num8 == true) {
-                                    if ("game!".equals(gato.getResultadoP1())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 1!!! Felicidades.");
-                                        break;
-                                    } else if ("game2!".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 2!!! Felicidades.");
-                                        break;
-                                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Empate!!!");
-                                        break;
-                                    }
-                                }
-                                if (num3 == true && num6 == true && num9 == true) {
-                                    if ("game!".equals(gato.getResultadoP1())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 1!!! Felicidades.");
-                                        break;
-                                    } else if ("game2!".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 2!!! Felicidades.");
-                                        break;
-                                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Empate!!!");
-                                        break;
-                                    }
-                                }
-                                if (num1 == true && num5 == true && num9 == true) {
-                                    if ("game!".equals(gato.getResultadoP1())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 1!!! Felicidades.");
-                                        break;
-                                    } else if ("game2!".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 2!!! Felicidades.");
-                                        break;
-                                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Empate!!!");
-                                        break;
-                                    }
-                                }
-                                if (num7 == true && num5 == true && num3 == true) {
-                                    if ("game!".equals(gato.getResultadoP1())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 1!!! Felicidades.");
-                                        break;
-                                    } else if ("game2!".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Gana el Jugador 2!!! Felicidades.");
-                                        break;
-                                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
-                                        gato.getGato();
-                                        System.out.println("Empate!!!");
-                                        break;
-                                    }
-                                }
-                                gato.getGato();
-
-                            }//while del juego
-                            gato.setPeticion();
-                            if ("no".equalsIgnoreCase(gato.getPeticion())) {
-                                System.out.println("Gracias por jugar. que tenga buen dia.");
-                                break;
-                            }
-                        } //while general
-                        catch (InterruptedException ex) {
-                            Logger.getLogger(JuegoGato.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-
+                    } else if ("game2!".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 2!!! Felicidades.");
+                        break;
+                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Empate!!!");
+                        break;
                     }
                 }
+                if (num4 == true && num5 == true && num6 == true) {
+                    if ("game!".equals(gato.getResultadoP1())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 1!!! Felicidades.");
+                        break;
+                    } else if ("game2!".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 2!!! Felicidades.");
+                        break;
+                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Empate!!!");
+                        break;
+                    }
+                }
+                if (num7 == true && num8 == true && num9 == true) {
+                    if ("game!".equals(gato.getResultadoP1())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 1!!! Felicidades.");
+                        break;
+                    } else if ("game2!".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 2!!! Felicidades.");
+                        break;
+                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Empate!!!");
+                    }
+                }
+                if (num1 == true && num4 == true && num7 == true) {
+                    if ("game!".equals(gato.getResultadoP1())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 1!!! Felicidades.");
+                        break;
+                    } else if ("game2!".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 2!!! Felicidades.");
+                        break;
+                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Empate!!!");
+                        break;
+                    }
+                }
+                if (num2 == true && num5 == true && num8 == true) {
+                    if ("game!".equals(gato.getResultadoP1())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 1!!! Felicidades.");
+                        break;
+                    } else if ("game2!".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 2!!! Felicidades.");
+                        break;
+                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Empate!!!");
+                        break;
+                    }
+                }
+                if (num3 == true && num6 == true && num9 == true) {
+                    if ("game!".equals(gato.getResultadoP1())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 1!!! Felicidades.");
+                        break;
+                    } else if ("game2!".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 2!!! Felicidades.");
+                        break;
+                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Empate!!!");
+                        break;
+                    }
+                }
+                if (num1 == true && num5 == true && num9 == true) {
+                    if ("game!".equals(gato.getResultadoP1())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 1!!! Felicidades.");
+                        break;
+                    } else if ("game2!".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 2!!! Felicidades.");
+                        break;
+                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Empate!!!");
+                        break;
+                    }
+                }
+                if (num7 == true && num5 == true && num3 == true) {
+                    if ("game!".equals(gato.getResultadoP1())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 1!!! Felicidades.");
+                        break;
+                    } else if ("game2!".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Gana el Jugador 2!!! Felicidades.");
+                        break;
+                    } else if ("tie".equals(gato.getResultadoP1()) && "tie".equals(gato.getResultadoP2())) {
+                        gato.getGato();
+                        System.out.println("Empate!!!");
+                        break;
+                    }
+                }
+                gato.getGato();
+
+            }//while del juego
+            gato.setPeticion();
+            if ("no".equalsIgnoreCase(gato.getPeticion())) {
+                System.out.println("Gracias por jugar. que tenga buen dia.");
+                break;
             }
-        }
+
+        }//while general
     }
 }
